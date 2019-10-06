@@ -12,7 +12,7 @@
     "password": "eb8899481edb0098c0a4ebd0472dc600b463279665ca454f7c652f6e16b8a6b1",
     "database": "dcu2533urk4ha8",
     "host": "ec2-54-243-238-226.compute-1.amazonaws.com",
-    "dialect": "mysql",
+    "dialect": "postgres",
     "operatorsAliases": false
   }
 }
