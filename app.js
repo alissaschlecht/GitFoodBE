@@ -1,8 +1,10 @@
 const express = require('express');
 const Umzug = require('umzug');
+const cors = require('cors');
 const path = require('path');
 const routes = require('./routes');
 const db = require('./models');
+
 
 // configure sequelize to connect to db and run migrations if needed
 const umzug = new Umzug({
@@ -35,5 +37,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', routes);
+
+app.use(cors());
 
 module.exports = app;
