@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Dish.associate = function(models) {
-    // associations can be defined here
+    Dish.hasMany(models.DishVersion);
   };
   return Dish;
 };

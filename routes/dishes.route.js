@@ -5,13 +5,16 @@ const controller = require('../controllers/dishes.controller');
 // GET /api/dishes
 dishesRoutes.get('/', controller.getAllDishes);
 
+// GET /api/dishes/:id
+dishesRoutes.get('/:id', controller.getOneDishes);
+
 // POST /api/dishes
 dishesRoutes.post('/', controller.createOneDish);
 
 // DELETE /api/dishes/:id
 dishesRoutes.delete('/:id', controller.deleteOneDish);
 
-// DELETE /api/dishes/:id
+// PUT /api/dishes/:id
 dishesRoutes.put('/:id', controller.updateOneDish);
 
 
