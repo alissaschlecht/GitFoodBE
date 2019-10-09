@@ -6,7 +6,7 @@ const controller = require('../controllers/dishes.controller');
 dishesRoutes.get('/', controller.getAllDishes);
 
 // GET /api/dishes/:id
-dishesRoutes.get('/:id', controller.getOneDishes);
+dishesRoutes.get('/:id', controller.getOneDish);
 
 // POST /api/dishes
 dishesRoutes.post('/', controller.createOneDish);
