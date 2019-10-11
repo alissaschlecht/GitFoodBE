@@ -1,18 +1,18 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Ingredients', {
+    return queryInterface.createTable('ingredients', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      versionID: {
+      version_id: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-         model: "DishVersions",
+         model: "versions",
          key: "id"
         }
       },
@@ -25,17 +25,17 @@ module.exports = {
       measurement: {
         type: Sequelize.STRING
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Ingredients');
+    return queryInterface.dropTable('ingredients');
   }
 };

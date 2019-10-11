@@ -15,14 +15,16 @@ const getAllInstructions = async (req, res) => {
 };
 
 const createOneInstruction = async (req, res) => {
-  if (!req.body.instruction) {
+  const instructionToCreate = req.body.instruction;
+
+  if (!instructionToCreate) {
     return res.status(500).json({
-      error: 'A instruction is mandatory to create an instruction',
+      error: 'A instruction is mandatory.',
     });
   }
   
   try {
-    const instruction = await instructionsService.createOneInstruction(req.body.instruction);
+    const instruction = await instructionsService.createOneInstruction(instructionToCreate);
 
     return res.status(200).json({
       instruction
@@ -35,14 +37,16 @@ const createOneInstruction = async (req, res) => {
 };
 
 const getOneInstruction = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.params.id;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to get an instruction',
+      error: 'An id is mandatory.',
     });
   }
   
   try {
-    const instruction = await instructionsService.getOneInstruction(req.params.id);
+    const instruction = await instructionsService.getOneInstruction(id);
 
     return res.status(200).json({
       instruction
@@ -55,14 +59,16 @@ const getOneInstruction = async (req, res) => {
 };
 
 const deleteOneInstruction = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.params.id;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to delete an instruction',
+      error: 'An id is mandatory.',
     });
   }
   
   try {
-    await instructionsService.deleteOneInstruction(req.params.id);
+    await instructionsService.deleteOneInstruction(id);
 
     return res.status(200).json({
     });
@@ -74,21 +80,24 @@ const deleteOneInstruction = async (req, res) => {
 };
 
 const updateOneInstruction = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.params.id;
+  const instructionToUpdate = req.body.instruction;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to update an instruction',
+      error: 'An id is mandatory.',
     });
   }
 
-  if (!req.body.instruction) {
+  if (!instructionToUpdate) {
     return res.status(500).json({
-      error: 'A instruction is mandatory to update an instruction',
+      error: 'A instruction is mandatory.',
     });
   }
   
   try {
-    await instructionsService.updateOneInstruction(req.body.instruction, req.params.id);
-    const instruction = await instructionsService.getOneInstruction(req.params.id);
+    await instructionsService.updateOneInstruction(instructionToUpdate, id);
+    const instruction = await instructionsService.getOneInstruction(id);
 
     return res.status(200).json({
       instruction

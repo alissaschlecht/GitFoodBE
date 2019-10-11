@@ -1,6 +1,6 @@
 const { Ingredient } = require('../models');
 
-const createOneIngredient = ingredient => {
+const createOneIngredient = (ingredient) => {
   return Ingredient.create(ingredient);
 };
 
@@ -13,7 +13,7 @@ const getOneIngredient = (id) => {
     where: {
       id
     }
-  })
+  });
 }
 
 const deleteOneIngredient = (id) => {
@@ -21,16 +21,15 @@ const deleteOneIngredient = (id) => {
     where: {
       id
     }
-  })
+  });
 }
 
 const updateOneIngredient = (ingredient, id) => {
-  return Ingredient.update(ingredient,
-  {
+  return Ingredient.update(ingredient, {
     where: {
       id
     }
-  })
+  });
 }
 
 module.exports = {

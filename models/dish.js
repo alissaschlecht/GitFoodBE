@@ -7,9 +7,11 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true
     },
     name: DataTypes.STRING
-  }, {});
+  }, {
+    underscored: true,
+  });
   Dish.associate = function(models) {
-    Dish.hasMany(models.DishVersion);
+    Dish.hasMany(models.Version, { foreignKey: 'dishId', sourceKey: 'id' });
   };
   return Dish;
 };

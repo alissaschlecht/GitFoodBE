@@ -1,6 +1,6 @@
-const { Instructions } = require('../models');
+const { Instruction } = require('../models');
 
-const createOneInstruction = instruction => {
+const createOneInstruction = (instruction) => {
   return Instruction.create(instruction);
 };
 
@@ -13,7 +13,7 @@ const getOneInstruction = (id) => {
     where: {
       id
     }
-  })
+  });
 }
 
 const deleteOneInstruction = (id) => {
@@ -21,16 +21,15 @@ const deleteOneInstruction = (id) => {
     where: {
       id
     }
-  })
+  });
 }
 
 const updateOneInstruction = (instruction, id) => {
-  return Instruction.update(instruction,
-  {
+  return Instruction.update(instruction, {
     where: {
       id
     }
-  })
+  });
 }
 
 module.exports = {
