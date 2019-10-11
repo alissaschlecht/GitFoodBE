@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     versionNumber: DataTypes.INTEGER
   }, {});
   DishVersion.associate = function(models) {
-    DishVersion.belongsTo(models.Dish);
-    DishVersion.hasMany(models.Ingredient);
-    DishVersion.hasMany(models.Instruction);
+    // DishVersion.belongsTo(models.Dish);
+    // DishVersion.hasMany(models.Ingredient);
+    // DishVersion.hasMany(models.Instruction);
   };
   return DishVersion;
 };

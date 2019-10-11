@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING
   }, {});
   Instruction.associate = function(models) {
-    Instruction.belongsTo(models.DishVersion);
+    // Instruction.belongsTo(models.DishVersion);
   };
   return Instruction;
 };

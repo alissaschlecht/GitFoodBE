@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     measurement: DataTypes.STRING
   }, {});
   Ingredient.associate = function(models) {
-    Ingredient.belongsTo(models.DishVersion);
+    // Ingredient.belongsTo(models.DishVersion);
   };
   return Ingredient;
 };
