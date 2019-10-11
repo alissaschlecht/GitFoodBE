@@ -1,4 +1,4 @@
-const { Instructions } = require('../models');
+const { Instruction } = require('../models');
 
 const createOneInstruction = instruction => {
   return Instruction.create(instruction);
