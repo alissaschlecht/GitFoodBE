@@ -1,0 +1,576 @@
+{
+	"info": {
+		"_postman_id": "cd28b22d-a66f-4fdd-81b8-52a921b2ebd9",
+		"name": "GitFood BE localhost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dishes",
+			"item": [
+				{
+					"name": "Get all dishes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/dishes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dishes"
+							]
+						},
+						"description": "Get all dishes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get one dish",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/dishes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dishes",
+								"2"
+							]
+						},
+						"description": "Get one dish"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a dish",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dish\": {\n\t\t\"name\": \"Frozen Pizza\",\n\t\t\"version\": {\n\t\t\t\"notes\": \"I love frozen pizza\",\n\t\t\t\"versionNumber\": 1,\n\t\t\t\"ingredients\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Frozen Pizza\",\n\t\t\t\t\t\"quantity\": \"1\",\n\t\t\t\t\t\"measurement\": \"\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"Grated cheese\",\n\t\t\t\t\t\"quantity\": \"1\",\n\t\t\t\t\t\"measurement\": \"cup\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"instructions\": [\n\t\t\t\t{\n\t\t\t\t\t\"stepNumber\": 1,\n\t\t\t\t\t\"description\": \"Pre heat oven on 350 degrees\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"stepNumber\": 2,\n\t\t\t\t\t\"description\": \"Add cheese on top of pizza\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"stepNumber\": 3,\n\t\t\t\t\t\"description\": \"Put in oven and wait 10 minutes\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"stepNumber\": 4,\n\t\t\t\t\t\"description\": \"Enjoy\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/dishes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dishes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a dish",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dish\": {\n\t\t\"name\": \"This is an updated dish\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/dishes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dishes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a dish",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/dishes/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"dishes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Versions",
+			"item": [
+				{
+					"name": "Get all versions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/versions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/versions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"versions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a version",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"version\": {\n\t\t\"dishId\": 2,\n\t\t\"notes\": \"This is my notes\",\n\t\t\"versionNumber\": 1\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/versions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a version",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"version\": {\n\t\t\"dishId\": 2,\n\t\t\"notes\": \"This is my notes\",\n\t\t\"versionNumber\": 2\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/versions/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"versions",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a version",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/versions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"versions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Ingredients",
+			"item": [
+				{
+					"name": "Get all ingredients",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/ingredients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an ingredient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/ingredients/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ingredients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an ingredient",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ingredient\": {\n\t\t\"versionId\": 2,\n\t\t\"name\": \"Tomatoes\",\n\t\t\"quantity\": \"2\",\n\t\t\"measurement\": \"kg\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ingredients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ingredients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit an ingredient",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ingredient\": {\n\t\t\"versionId\": 2,\n\t\t\"name\": \"Tomatoes\",\n\t\t\"quantity\": \"3\",\n\t\t\"measurement\": \"kg\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/ingredients/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ingredients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an ingredient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/ingredients/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"ingredients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Instructions",
+			"item": [
+				{
+					"name": "Get all instructions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/instructions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instructions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get an instruction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/instructions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instructions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an instruction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"instruction\": {\n\t\t\"versionId\": 2,\n\t\t\"stepNumber\": 1,\n\t\t\"description\": \"Add all the tomatoes in to the plate\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/instructions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instructions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit an instruction",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"instruction\": {\n\t\t\"versionId\": 2,\n\t\t\"stepNumber\": 1,\n\t\t\"description\": \"Add all the tomatoes in to the plate and eat!\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/instructions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instructions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an instruction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/instructions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"instructions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -10,16 +10,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'DishVersions',
+        model: 'Version',
         key: 'id'
       },
     },
     name: DataTypes.STRING,
     quantity: DataTypes.STRING,
     measurement: DataTypes.STRING
-  }, {});
+  }, {
+    underscored: true,
+  });
   Ingredient.associate = function(models) {
-    // Ingredient.belongsTo(models.DishVersion);
+    Ingredient.belongsTo(models.Version, { foreignKey: 'versionId', targetKey: 'id' });
   };
   return Ingredient;
 };

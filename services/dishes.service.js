@@ -1,9 +1,7 @@
 const { Dish } = require('../models');
 
-const createOneDish = name => {
-  return Dish.create({
-    name
-  });
+const createOneDish = (dish) => {
+  return Dish.create(dish);
 };
 
 const getAllDishes = () => {
@@ -15,7 +13,7 @@ const getOneDish = (id) => {
     where: {
       id
     }
-  })
+  });
 }
 
 const deleteOneDish = (id) => {
@@ -23,18 +21,15 @@ const deleteOneDish = (id) => {
     where: {
       id
     }
-  })
+  });
 }
 
-const updateOneDish = (name, id) => {
-  return Dish.update({
-    name
-  },
-  {
+const updateOneDish = (dish, id) => {
+  return Dish.update(dish, {
     where: {
       id
     }
-  })
+  });
 }
 
 module.exports = {

@@ -15,14 +15,16 @@ const getAllVersions = async (req, res) => {
 };
 
 const createOneVersion = async (req, res) => {
-  if (!req.body.version) {
+  const versionToCreate = req.body.version;
+
+  if (!versionToCreate) {
     return res.status(500).json({
-      error: 'A version object is mandatory to create a version',
+      error: 'A version is mandatory.',
     });
   }
   
   try {
-    const version = await versionsService.createOneVersion(req.body.version);
+    const version = await versionsService.createOneVersion(versionToCreate);
 
     return res.status(200).json({
       version
@@ -35,14 +37,16 @@ const createOneVersion = async (req, res) => {
 };
 
 const getOneVersion = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.parans.id;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to get a version',
+      error: 'An id is mandatory.',
     });
   }
   
   try {
-    const version = await versionsService.getOneVersion(req.params.id);
+    const version = await versionsService.getOneVersion(id);
 
     return res.status(200).json({
       version
@@ -55,14 +59,16 @@ const getOneVersion = async (req, res) => {
 };
 
 const deleteOneVersion = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.parans.id;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to delete a version',
+      error: 'An id is mandatory.',
     });
   }
   
   try {
-    await versionsService.deleteOneVersion(req.params.id);
+    await versionsService.deleteOneVersion(id);
 
     return res.status(200).json({
     });
@@ -74,21 +80,24 @@ const deleteOneVersion = async (req, res) => {
 };
 
 const updateOneVersion = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.parans.id;
+  const versionToUpdate = req.body.version;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to update a version',
+      error: 'An id is mandatory.',
     });
   }
 
-  if (!req.body.version) {
+  if (!versionToUpdate) {
     return res.status(500).json({
-      error: 'A version object is mandatory to update a version',
+      error: 'A version is mandatory.',
     });
   }
   
   try {
-    await versionsService.updateOneVersion(req.body.version, req.params.id);
-    const version = await versionsService.getOneVersion(req.params.id);
+    await versionsService.updateOneVersion(versionToUpdate, id);
+    const version = await versionsService.getOneVersion(id);
 
     return res.status(200).json({
       version

@@ -15,14 +15,16 @@ const getAllIngredients = async (req, res) => {
 };
 
 const createOneIngredient = async (req, res) => {
-  if (!req.body.ingredient) {
+  const ingredientToCreate = req.body.ingredient;
+
+  if (!ingredientToCreate) {
     return res.status(500).json({
-      error: 'A ingredient is mandatory to create an ingredient',
+      error: 'A ingredient is mandatory.',
     });
   }
   
   try {
-    const ingredient = await ingredientsService.createOneIngredient(req.body.ingredient);
+    const ingredient = await ingredientsService.createOneIngredient(ingredientToCreate);
 
     return res.status(200).json({
       ingredient
@@ -35,14 +37,16 @@ const createOneIngredient = async (req, res) => {
 };
 
 const getOneIngredient = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.params.id;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to get an ingredient',
+      error: 'An id is mandatory.',
     });
   }
   
   try {
-    const ingredient = await ingredientsService.getOneIngredient(req.params.id);
+    const ingredient = await ingredientsService.getOneIngredient(id);
 
     return res.status(200).json({
       ingredient
@@ -55,14 +59,16 @@ const getOneIngredient = async (req, res) => {
 };
 
 const deleteOneIngredient = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.params.id;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to delete an ingredient',
+      error: 'An id is mandatory.',
     });
   }
   
   try {
-    await ingredientsService.deleteOneIngredient(req.params.id);
+    await ingredientsService.deleteOneIngredient(id);
 
     return res.status(200).json({
     });
@@ -74,21 +80,24 @@ const deleteOneIngredient = async (req, res) => {
 };
 
 const updateOneIngredient = async (req, res) => {
-  if (!req.params.id) {
+  const id = req.params.id;
+  const ingredientToUpdate = req.body.ingredient;
+
+  if (!id) {
     return res.status(500).json({
-      error: 'An id is mandatory to update a ingredient',
+      error: 'An id is mandatory.',
     });
   }
 
-  if (!req.body.ingredient) {
+  if (!ingredientToUpdate) {
     return res.status(500).json({
-      error: 'A ingredient is mandatory to update a ingredient',
+      error: 'A ingredient is mandatory.',
     });
   }
   
   try {
-    await ingredientsService.updateOneIngredient(req.body.ingredient, req.params.id);
-    const ingredient = await ingredientsService.getOneIngredient(req.params.id);
+    await ingredientsService.updateOneIngredient(ingredientToUpdate, id);
+    const ingredient = await ingredientsService.getOneIngredient(id);
 
     return res.status(200).json({
       ingredient

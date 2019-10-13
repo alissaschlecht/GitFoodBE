@@ -10,15 +10,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'DishVersions',
+        model: 'Version',
         key: 'id'
       },
     },
     stepNumber: DataTypes.INTEGER,
     description: DataTypes.STRING
-  }, {});
+  }, {
+    underscored: true,
+  });
   Instruction.associate = function(models) {
-    // Instruction.belongsTo(models.DishVersion);
+    Instruction.belongsTo(models.Version, { foreignKey: 'versionId', targetKey: 'id' });
   };
   return Instruction;
 };

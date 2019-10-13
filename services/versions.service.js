@@ -1,36 +1,36 @@
-const { DishVersion } = require('../models');
+const { Version } = require('../models');
 
-const createOneVersion = version => {
-  return DishVersion.create(version);
+const createOneVersion = (version) => {
+  console.log(version)
+  return Version.create(version);
 };
 
 const getAllVersions = () => {
-  return DishVersion.findAll();
+  return Version.findAll();
 };
 
 const getOneVersion = (id) => {
-  return DishVersion.findOne({
+  return Version.findOne({
     where: {
       id
     }
-  })
+  });
 }
 
 const deleteOneVersion = (id) => {
-  return DishVersion.destroy({
+  return Version.destroy({
     where: {
       id
     }
-  })
+  });
 }
 
 const updateOneVersion = (version, id) => {
-  return DishVersion.update(version,
-  {
+  return Version.update(version, {
     where: {
       id
     }
-  })
+  });
 }
 
 module.exports = {
