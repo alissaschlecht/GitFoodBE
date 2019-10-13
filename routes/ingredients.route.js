@@ -5,16 +5,16 @@ const controller = require('../controllers/ingredients.controller');
 // GET /api/ingredients
 ingredientsRoute.get('/', controller.getAllIngredients);
 
-// GET /api/ingredient/:id
+// GET /api/ingredients/:id
 ingredientsRoute.get('/:id', controller.getOneIngredient);
 
-// POST /api/ingredient
+// POST /api/ingredients
 ingredientsRoute.post('/', controller.createOneIngredient);
 
-// DELETE /api/ingredient/:id
+// DELETE /api/ingredients/:id
 ingredientsRoute.delete('/:id', controller.deleteOneIngredient);
 
-// PUT /api/ingredient/:id
+// PUT /api/ingredients/:id
 ingredientsRoute.put('/:id', controller.updateOneIngredient);
 
 
