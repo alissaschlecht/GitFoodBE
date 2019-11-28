@@ -149,7 +149,7 @@ const deleteOneDish = async (req, res) => {
 
 const updateOneDish = async (req, res) => {
   const id = req.params.id;
-  const dishToUpdate = req.params.dish;
+  const dishToUpdate = req.body.dish;
 
   if (!id) {
     return res.status(500).json({
